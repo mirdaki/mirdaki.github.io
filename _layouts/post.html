@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<!--Post Content-->
+<div class="post">
+	<h1 class="post-title">{{ page.title }}</h1>
+	<span class="post-date">{{ page.date | date_to_string }}</span>
+	{{ content }}
+
+	<p class="italic">Till next time, <br>
+	- {{ site.author.name }}
+	</p>
+</div>
+
+<!--Related Posts-->
+{% assign POSTS_LIMIT = 3 %}
+{% assign post_count = 0 %}
+
+<div class="related">
+	<h2>Related Posts</h2>
+	<ul class="related-posts">
+
+	<!--Go through other posts-->
+	{% for post in site.related_posts %}
+
+		<!--Check if limit reached and stop-->
+		{% if post_count == POSTS_LIMIT %}
+			{% break %}
+		{% endif %}
+
+		<!--Check if categories match-->
+		{% for category in post.categories %}
+			
+			{% if page.categories contains category %}
+				<li>
+					<h3>
+						<a href="{{ site.baseurl }}{{ post.url }}">
+							{{ post.title }}
+							<small>{{ post.date | date_to_string }}</small>
+						</a>
+					</h3>
+				</li>
+				<!--Increment counter and stop checking this posts-->
+				{% assign post_count = post_count | plus: 1 %}
+				{% break %}
+			{% endif %}
+
+		{% endfor %}
+
+	{% endfor %}
+	</ul>
+</div>

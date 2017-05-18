@@ -1,0 +1,6 @@
+---
+layout: null
+feed: ""
+---
+
+{% include atom.xml feed=page.feed %}

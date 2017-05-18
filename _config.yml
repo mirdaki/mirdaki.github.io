@@ -1,0 +1,42 @@
+# Site settings
+title: Site Title
+email: Site Email Address 
+description: > 
+  A really cool description that describes the blog perfectly. 
+baseurl: "" 
+url: Site Url
+
+# Author/contact
+author:
+  name: Author Name
+  email: Author Email Address
+  github_username:  Author Github Name
+  github_url: Author Github Url
+  linkedin_url: Author Linkedin Url
+
+# Site organization
+include: ["_pages"]
+permalink: /:categories/:title/
+
+# Excerpt
+excerpt_separator: <!--excerpt-->
+
+# Pagination 
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: "page/:num/"
+  title: ":title - Page :num"
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+
+# Build settings
+markdown: kramdown
+gems:
+  - jekyll-feed
+  - jekyll-paginate-v2
+exclude:
+  - Gemfile
+  - Gemfile.lock
+destination: Server Build Destination
