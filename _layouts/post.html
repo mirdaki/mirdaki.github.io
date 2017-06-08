@@ -22,7 +22,7 @@ layout: default
 	<ul class="related-posts">
 
 	<!--Go through other posts-->
-	{% for post in site.related_posts %}
+	{% for post in site.posts %}
 
 		<!--Check if limit reached and stop-->
 		{% if post_count == POSTS_LIMIT %}
@@ -32,7 +32,7 @@ layout: default
 		<!--Check if categories match-->
 		{% for category in post.categories %}
 			
-			{% if page.categories contains category %}
+			{% if page.categories contains category and page.title != post.title %}
 				<li>
 					<h3>
 						<a href="{{ site.baseurl }}{{ post.url }}">
