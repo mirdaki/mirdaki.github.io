@@ -6,6 +6,11 @@ img {
 	margin-right: auto;
 }
 
+/*Fix space under sub-list*/
+ul {
+	margin-bottom: 0;
+}
+
 /*On click, have photographs take up screen and gray out background*/
 /*img {
     -webkit-transition: all 1s ease; 
